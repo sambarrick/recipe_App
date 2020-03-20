@@ -2,7 +2,8 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router"
 import cookie from "cookie"
 import Login from "./components/Login"
-import Home from './components/Home'
+import Home from './containers/Home'
+import Recipes from "./components/Recipes";
 
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
@@ -30,6 +31,7 @@ const Router = () => {
      <Route exact path="/" component={Login} />
       <Route path="/login" component={Login} />
       <ProtectedRoute exact path="/home" component={Home} />
+      <ProtectedRoute exact path="/recipes" component={Recipes} />
       {/*  <Route path="/business/:name" component={Business} /> */}
     </Switch>
   );

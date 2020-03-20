@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import {TextField, Button, Container} from "@material-ui/core";
-import {checkAuth} from '../Router'
-
 
 class App extends Component {
     state = {
       username: "",
       password: "",
-      loggedIn: false
     }
   
     handleTextChange = e => {
@@ -19,8 +16,8 @@ class App extends Component {
     login = e => {
       e.preventDefault();
       // set cookie here
-      document.cookie = "loggedIn=true;max-age=60*1000";
-      window.location.replace("/");
+      document.cookie = "loggedIn=true;max-age=60*2000";
+      window.location.replace("/home");
     }
   
     render() {

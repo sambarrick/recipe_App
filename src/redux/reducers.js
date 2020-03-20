@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 const user = (state = null) => state
 
-const recipes = (state = [], action) => {
+const recipe = (state = [], action) => {
     switch(action.type) {
         case 'ADD_RECIPE':
             return [ ...state, action.value ]
@@ -16,4 +16,4 @@ const recipes = (state = [], action) => {
 }
 
 
-export default combineReducers({ user })
+export default combineReducers({ user, recipe })

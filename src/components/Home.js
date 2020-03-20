@@ -1,11 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { checkAuth } from "../Router";
+import { Link } from "react-router-dom";
 
-export default class Home extends Component {
-    render() {
+const Home = (props) => {
         return (
             <div>
-                <h1>Welcome!</h1>
+            <div className="loggedin-header">
+            {checkAuth() && 
+                <h1>Welcome (user name), what's cookin'</h1>
+            }
+                </div>
             </div>
         )
     }
-}
+
+
+export default Home;

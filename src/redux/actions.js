@@ -12,3 +12,17 @@ export const logout = () => {
   }
 }
 
+export const addRecipe = (recipe) => {
+  return {
+      type: 'ADD_RECIPE',
+      value: recipe
+  }
+}
+
+export const removeRecipe = (index) => {
+  return {
+      type: 'REMOVE_RECIPE',
+      value: index
+  }
+}
+

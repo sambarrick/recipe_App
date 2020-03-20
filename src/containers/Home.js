@@ -3,7 +3,8 @@ import Home from '../components/Home'
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        user: state.user,
+        recipe: state.recipe
     }
 }
 
