@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Login from '../components/Login'
-import { login, logout } from '../redux/actions';
+import { login, logout, getAllRecipes } from '../redux/actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         login: () => dispatch(login()),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        getAllRecipes: () => dispatch(getAllRecipes())
     }
 }
 

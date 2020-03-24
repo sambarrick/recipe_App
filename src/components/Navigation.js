@@ -4,7 +4,7 @@ import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from "react-router-dom";
 import { checkAuth } from "../Router";
-import NavigationLoggedIn from '../components/NavigationLoggedIn'
+import NavigationLoggedIn from '../containers/NavigationLoggedIn'
 
 const useStyles = makeStyles(theme => ({
   root: {

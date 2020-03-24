@@ -26,3 +26,17 @@ export const removeRecipe = (index) => {
   }
 }
 
+export const getAllRecipes = () => {
+    return dispatch => {
+      fetch("/recipes")
+        .then(res => res.json())
+        .then(response => {
+          const action = {
+            type: "FETCH_RECIPES",
+            value: response
+          };
+          dispatch(action);
+        })
+      .catch(error => console.log(error));
+  } 
+}

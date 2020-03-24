@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {TextField, Button, Container} from "@material-ui/core";
+import { Link } from 'react-router-dom';
 
 class App extends Component {
     state = {
@@ -17,8 +18,8 @@ class App extends Component {
     login = e => {
       e.preventDefault();
       // set cookie here
-      document.cookie = "loggedIn=true;max-age=60*1000";
-      window.location.replace("/home");
+      document.cookie = "loggedIn=true;max-age=60*10000";
+     window.location.replace("/home");
     }
   
     render() {
@@ -46,6 +47,10 @@ class App extends Component {
                 type="submit"
                 variant="contained"
                 color="primary"
+                fullWidth
+                // onClick. Since this is a class based component, props are
+                // passed automatically but you need to reference "this"
+                // to make it work
                 >Login</Button>
             </form>
           </Container>

@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router"
 import cookie from "cookie"
-import Login from "./components/Login"
+import Login from "./containers/Login"
 import Home from './containers/Home'
-import Recipes from "./components/Recipes";
+import Recipes from "./containers/Recipes";
 
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
