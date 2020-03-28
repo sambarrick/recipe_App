@@ -11,7 +11,7 @@ class Connection {
         password: '',
         database: 'recipe_app_sql_db'
       })
-
+console.log("connection made")
       return this.pool
     }
 

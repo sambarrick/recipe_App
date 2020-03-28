@@ -14,7 +14,7 @@ a {
   margin: auto 20px;
 }
 
-.nav-list-item:hover{
+.nav-list-item:hover {
   -webkit-animation: bounce 1s;
   animation: pulse 1s;;
 }

@@ -3,17 +3,15 @@ import MaterialTable from "material-table";
 
 export default function Recipes(props) {
  
-    console.log('initial', props.recipes)
+    // console.log('initial', props.recipes)
   const [state, setState] = React.useState({
       
     columns: [
-      { title: "ID", field: "id", type: "numeric" },
+      //{ title: "ID", field: "id", type: "numeric" },
       { title: "Recipe Name", field: "recipe_name" },
       { title: "Cuisine Type", field: "cuisine_type" },
       { title: "Cook Time", field: "total_cook_time" },
       { title: "Description", field: "recipe_description" }
-        // lookup: { 34: "İstanbul", 63: "Şanlıurfa" }
-      
     ],
 
 
@@ -34,7 +32,6 @@ export default function Recipes(props) {
 
   return (
       <Fragment>
-      {console.log('secondary', props.recipes)}
     <MaterialTable
       title="Recipes"
       columns={state.columns}
@@ -45,6 +42,8 @@ export default function Recipes(props) {
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
+              {props.addRecipe(newData)}
+              {props.getAllRecipes()}
               setState(prevState => {
                 const data = [...prevState.data];
                 data.push(newData);
@@ -54,6 +53,7 @@ export default function Recipes(props) {
           }),
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
+            {console.log("row update")}
             setTimeout(() => {
               resolve();
               if (oldData) {

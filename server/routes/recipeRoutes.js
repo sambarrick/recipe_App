@@ -7,7 +7,7 @@ router.get('/', recipeController.getAllRecipes)
 
 // router.get('/:id', authenticate, recipeController.getUserById) NOT SURE IF NEEDED
 
-//router.post('/recipes', authenticate, recipeController.addRecipe)
+router.post('/', recipeController.addRecipe)
 
 // router.put('/:id', authenticate, recipeController.updateUserById)
 

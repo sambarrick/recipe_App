@@ -6,7 +6,7 @@ const path = require("path");
 const recipeRoutes = require("./routes/recipeRoutes");
 
 //calling middleware to log network activity
-const { logger, authenticate } = require('../server/middleware');
+//const { logger, authenticate } = require('../server/middleware');
 
 //using express()
 const app = express();
@@ -16,8 +16,8 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 //logger here to keep track of network activity
- app.use(logger);
- app.use(authenticate);
+//  app.use(logger);
+//  app.use(authenticate);
 
 //app.use( all api routes) here
 app.use("/recipes", recipeRoutes);

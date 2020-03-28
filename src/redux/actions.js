@@ -13,10 +13,23 @@ export const logout = () => {
 }
 
 export const addRecipe = (recipe) => {
-  return {
-      type: 'ADD_RECIPE',
-      value: recipe
-  }
+  return dispatch => {
+    fetch("/recipes", {
+      method: 'POST',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+      recipe_name: recipe.recipe_name,
+      cuisine_type: recipe.cuisine_type,
+      total_cook_time: recipe.total_cook_time,
+      recipe_description: recipe.recipe_description
+      })})
+      .then(response => {
+      response.json()
+      }).then(function(body) {
+      console.log('clientside post: ' + body);
+      })
+      .catch(error => console.log(error))
+      }
 }
 
 export const removeRecipe = (index) => {

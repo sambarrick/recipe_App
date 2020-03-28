@@ -30,16 +30,19 @@ const getAllRecipes = (req, res) => {
 //   })
 // }
 
-// const addRecipe = (req, res) => {
-//   const { ID, recipeName, cuisineType, totalCookTime, recipeDescription } = req.body
-//   let sql = "INSERT INTO RECIPE_DATA (id, recipe_name, cuisine_type, total_cook_time, recipe_description) VALUES (?, ?, ?, ?, ?)"
-//   sql = mysql.format(sql, [ ID, recipeName, cuisineType, totalCookTime, recipeDescription ])
+const addRecipe = (req, res) => {
+  console.log("add recipe")
+  const { recipe_name, cuisine_type, total_cook_time, recipe_description } = req.body
+  console.log("request body", (req.body))
+  let sql = "INSERT INTO RECIPE_DATA (recipe_name, cuisine_type, total_cook_time, recipe_description) VALUES (?, ?, ?, ?)"
+  sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time, recipe_description ])
 
-//   pool.query(sql, (err, results) => {
-//     if (err) return handleSQLError(res, err)
-//     return res.json({ newId: results.insertId });
-//   })
-// }
+  pool.query(sql, (err, results) => {
+    if (err) return handleSQLError(res, err)
+    console.log("test post", results)
+    return res.json({ newId: results.insertId });
+  })
+}
 
 // const updateRecipe = (req, res) => {
 //   const { firstName, lastName } = req.body
@@ -64,7 +67,7 @@ const getAllRecipes = (req, res) => {
 
 module.exports = {
   getAllRecipes,
-  //addRecipe
+  addRecipe
 }
 
 // above exports NEED to match what the router is using AND the function const names
