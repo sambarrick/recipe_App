@@ -9,7 +9,7 @@ router.get('/', recipeController.getAllRecipes)
 
 router.post('/', recipeController.addRecipe)
 
-// router.put('/:id', authenticate, recipeController.updateUserById)
+//router.put('/', recipeController.updateRecipe)
 
 // router.delete('/recipes/:first_name', recipeController.deleteUserByFirstName)
 

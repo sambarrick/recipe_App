@@ -31,23 +31,22 @@ const getAllRecipes = (req, res) => {
 // }
 
 const addRecipe = (req, res) => {
-  console.log("add recipe")
-  const { recipe_name, cuisine_type, total_cook_time, recipe_description } = req.body
-  console.log("request body", (req.body))
-  let sql = "INSERT INTO RECIPE_DATA (recipe_name, cuisine_type, total_cook_time, recipe_description) VALUES (?, ?, ?, ?)"
-  sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time, recipe_description ])
+  //console.log("add recipe")
+  const { recipe_name, cuisine_type, total_cook_time } = req.body
+  //console.log("request body", (req.body))
+  let sql = "INSERT INTO RECIPE_DATA (recipe_name, cuisine_type, total_cook_time) VALUES (?, ?, ?)"
+  sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time ])
 
   pool.query(sql, (err, results) => {
     if (err) return handleSQLError(res, err)
-    console.log("test post", results)
     return res.json({ newId: results.insertId });
   })
 }
 
 // const updateRecipe = (req, res) => {
-//   const { firstName, lastName } = req.body
-//   let sql = "UPDATE users SET first_name = ?, last_name = ? WHERE id = ?"
-//   sql = mysql.format(sql, [ firstName, lastName, req.params.id ])
+//   const { recipe_name, cuisine_type, total_cook_time } = req.body
+//   let sql = "UPDATE RECIPE_DATA SET recipe_name = ?, cuisine_type = ?, total_cook_time = ? = ?, WHERE id = ?"
+//   sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time, req.params.id ])
 
 //   pool.query(sql, (err, results) => {
 //     if (err) return handleSQLError(res, err)
@@ -67,7 +66,8 @@ const addRecipe = (req, res) => {
 
 module.exports = {
   getAllRecipes,
-  addRecipe
+  addRecipe,
+  //updateRecipe
 }
 
 // above exports NEED to match what the router is using AND the function const names

@@ -12,6 +12,8 @@ const recipes = (state = [], action) => {
       return recipe;
     case "FETCH_RECIPES":
       return action.value;
+      case "UPDATE_RECIPE":
+        return [...state, action.value];
     default:
       return state;
   }

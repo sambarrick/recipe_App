@@ -2,18 +2,15 @@ import React, { Fragment } from "react";
 import MaterialTable from "material-table";
 
 export default function Recipes(props) {
- 
-    // console.log('initial', props.recipes)
+
   const [state, setState] = React.useState({
       
     columns: [
       //{ title: "ID", field: "id", type: "numeric" },
       { title: "Recipe Name", field: "recipe_name" },
       { title: "Cuisine Type", field: "cuisine_type" },
-      { title: "Cook Time", field: "total_cook_time" },
-      { title: "Description", field: "recipe_description" }
+      { title: "Cook Time", field: "total_cook_time" }
     ],
-
 
    data: [],
 
