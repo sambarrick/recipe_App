@@ -10,25 +10,15 @@ export default function Recipes(props) {
       { title: "ID", field: "id", type: "numeric" },
       { title: "Recipe Name", field: "recipe_name" },
       { title: "Cuisine Type", field: "cuisine_type" },
-      {
-        title: "Cook Time",
-        field: "total_cook_time",
+      { title: "Cook Time", field: "total_cook_time" },
+      { title: "Description", field: "recipe_description" }
         // lookup: { 34: "İstanbul", 63: "Şanlıurfa" }
-      }
+      
     ],
-// data: props.recipes
+
 
    data: [],
-    // [
 
-    //   { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-    //   {
-    //     name: "Zerya Betül",
-    //     surname: "Baran",
-    //     birthYear: 2017,
-    //     birthCity: 34
-    //   }
-    // ]
   });
   
   props.recipes.length === 0 ? props.getAllRecipes() : 

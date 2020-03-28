@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from "react-router-dom";
 import { checkAuth } from "../Router";
 import NavigationLoggedIn from '../containers/NavigationLoggedIn'
@@ -32,7 +31,7 @@ export default function ButtonAppBar() {
           </Typography>
           <ul className="nav-list">
             <li className="nav-list-item">
-              <Link to="/login">Groceries</Link>
+              <Link to="/groceries">Groceries</Link>
             </li>
             <li className="nav-list-item">
             {!checkAuth() ? <Link to="/login">Login</Link>

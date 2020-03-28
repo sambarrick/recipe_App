@@ -53,7 +53,19 @@ class App extends Component {
                 // to make it work
                 >Login</Button>
             </form>
-          </Container>
+          
+        
+          
+          <form className="signup-form">
+                <h6 className="no-account">Don't have an account?</h6>
+                <Link to="/signup"><Button className="signup-button"
+                variant="contained"
+                color="secondary"
+                fullWidth
+                >
+                Signup</Button></Link>
+                </form>
+                </Container>
         </div>
       );
     }

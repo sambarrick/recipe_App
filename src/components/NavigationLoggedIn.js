@@ -28,7 +28,7 @@ export default function SimpleMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
         <MenuItem><Link to="/recipes">My Recipes</Link></MenuItem>
         <MenuItem><Link to="/login">Logout</Link></MenuItem>
       </Menu>

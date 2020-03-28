@@ -9,51 +9,62 @@ const getAllRecipes = (req, res) => {
   })
 }
 
-const getUserById = (req, res) => {
-  let sql = "SELECT * FROM users WHERE id = ?"
-  sql = mysql.format(sql, [ req.params.id ])
+// const getUserById = (req, res) => {
+//   let sql = "SELECT * FROM users WHERE id = ?"
+//   sql = mysql.format(sql, [ req.params.id ])
 
-  pool.query(sql, (err, rows) => {
-    if (err) return handleSQLError(res, err)
-    return res.json(rows);
-  })
-}
+//   pool.query(sql, (err, rows) => {
+//     if (err) return handleSQLError(res, err)
+//     return res.json(rows);
+//   })
+// }
 
-const createUser = (req, res) => {
-  const { firstName, lastName } = req.body
-  let sql = "INSERT INTO users (first_name, last_name) VALUES (?, ?)"
-  sql = mysql.format(sql, [ firstName, lastName ])
+// const createUser = (req, res) => {
+//   const { firstName, lastName } = req.body
+//   let sql = "INSERT INTO users (first_name, last_name) VALUES (?, ?)"
+//   sql = mysql.format(sql, [ firstName, lastName ])
 
-  pool.query(sql, (err, results) => {
-    if (err) return handleSQLError(res, err)
-    return res.json({ newId: results.insertId });
-  })
-}
+//   pool.query(sql, (err, results) => {
+//     if (err) return handleSQLError(res, err)
+//     return res.json({ newId: results.insertId });
+//   })
+// }
 
-const updateUserById = (req, res) => {
-  const { firstName, lastName } = req.body
-  let sql = "UPDATE users SET first_name = ?, last_name = ? WHERE id = ?"
-  sql = mysql.format(sql, [ firstName, lastName, req.params.id ])
+// const addRecipe = (req, res) => {
+//   const { ID, recipeName, cuisineType, totalCookTime, recipeDescription } = req.body
+//   let sql = "INSERT INTO RECIPE_DATA (id, recipe_name, cuisine_type, total_cook_time, recipe_description) VALUES (?, ?, ?, ?, ?)"
+//   sql = mysql.format(sql, [ ID, recipeName, cuisineType, totalCookTime, recipeDescription ])
 
-  pool.query(sql, (err, results) => {
-    if (err) return handleSQLError(res, err)
-    return res.status(204).json();
-  })
-}
+//   pool.query(sql, (err, results) => {
+//     if (err) return handleSQLError(res, err)
+//     return res.json({ newId: results.insertId });
+//   })
+// }
 
-const deleteUserByFirstName = (req, res) => {
-  let sql = "DELETE FROM users WHERE first_name = ?"
-  sql = mysql.format(sql, [ req.params.first_name ])
+// const updateRecipe = (req, res) => {
+//   const { firstName, lastName } = req.body
+//   let sql = "UPDATE users SET first_name = ?, last_name = ? WHERE id = ?"
+//   sql = mysql.format(sql, [ firstName, lastName, req.params.id ])
 
-  pool.query(sql, (err, results) => {
-    if (err) return handleSQLError(res, err)
-    return res.json({ message: `Deleted ${results.affectedRows} user(s)` });
-  })
-}
+//   pool.query(sql, (err, results) => {
+//     if (err) return handleSQLError(res, err)
+//     return res.status(204).json();
+//   })
+// }
+
+// const deleteUserByFirstName = (req, res) => {
+//   let sql = "DELETE FROM users WHERE first_name = ?"
+//   sql = mysql.format(sql, [ req.params.first_name ])
+
+//   pool.query(sql, (err, results) => {
+//     if (err) return handleSQLError(res, err)
+//     return res.json({ message: `Deleted ${results.affectedRows} user(s)` });
+//   })
+// }
 
 module.exports = {
-  getAllRecipes
-  
+  getAllRecipes,
+  //addRecipe
 }
 
 // above exports NEED to match what the router is using AND the function const names
