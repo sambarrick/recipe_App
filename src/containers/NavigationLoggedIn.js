@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import NavigationLoggedIn from '../components/NavigationLoggedIn'
-import { addRecipe, updateRecipe, getAllRecipes } from '../redux/actions';
+import { addRecipe, getRecipeById, updateRecipe, getAllRecipes, deleteRecipe } from '../redux/actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -12,8 +12,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addRecipe: () => dispatch(addRecipe()),
-        //updateRecipe: () => dispatch(updateRecipe()),
-       getAllRecipes: () => dispatch(getAllRecipes())
+        updateRecipe: () => dispatch(updateRecipe()),
+        getAllRecipes: () => dispatch(getAllRecipes()),
+        getRecipeById: () => dispatch(getRecipeById()),
+        deleteRecipe: () => dispatch(deleteRecipe())
     }
 }
 

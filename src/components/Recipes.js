@@ -22,7 +22,6 @@ export default function Recipes(props) {
 
     setState(prevState => {
         const data = props.recipes;
-        // data.push(props.recipes);
         return { ...prevState, data };
     });
   }, 600);
@@ -30,7 +29,7 @@ export default function Recipes(props) {
   return (
       <Fragment>
     <MaterialTable
-      title="Recipes"
+      title="My Recipes"
       columns={state.columns}
       data={state.data}
       
@@ -40,27 +39,23 @@ export default function Recipes(props) {
             setTimeout(() => {
               resolve();
               {props.addRecipe(newData)}
-              {props.getAllRecipes()}
-              setState(prevState => {
-                const data = [...prevState.data];
-                data.push(newData);
-                return { ...prevState, data };
-              });
             }, 600);
+            setTimeout(() => {
+              {props.getAllRecipes()}
+            }, 600)
           }),
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
-            {console.log("row update")}
+            {console.log("row update", newData)}
             setTimeout(() => {
               resolve();
-              if (oldData) {
-                setState(prevState => {
-                  const data = [...prevState.data];
-                  data[data.indexOf(oldData)] = newData;
-                  return { ...prevState, data };
-                });
-              }
+               {props.updateRecipe(newData)}
+              
+        
             }, 600);
+              setTimeout(() => {
+                {props.getAllRecipes()}
+              }, 600)
           }),
         onRowDelete: oldData =>
           new Promise(resolve => {

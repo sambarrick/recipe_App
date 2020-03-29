@@ -12,6 +12,36 @@ export const logout = () => {
   }
 }
 
+export const getAllRecipes = () => {
+  return dispatch => {
+    fetch("/recipes")
+      .then(res => res.json())
+      .then(response => {
+        const action = {
+          type: "FETCH_RECIPES",
+          value: response
+        };
+        dispatch(action);
+      })
+    .catch(error => console.log(error));
+} 
+}
+
+export const getRecipeById = () => {
+  return dispatch => {
+    fetch("/recipes/:id")
+      .then(res => res.json())
+      .then(response => {
+        const action = {
+          type: "GET_RECIPE_BY_ID",
+          value: response
+        };
+        dispatch(action);
+      })
+    .catch(error => console.log(error));
+} 
+}
+
 export const addRecipe = (recipe) => {
   return dispatch => {
     fetch("/recipes", {
@@ -31,43 +61,47 @@ export const addRecipe = (recipe) => {
       }
 }
 
-// export const updateRecipe = (recipe) => {
-//   return dispatch => {
-//     fetch("/recipes", {
-//       method: 'PUT',
-//       headers: {"Content-Type": "application/json"},
-//       body: JSON.stringify({
-//       recipe_name: recipe.recipe_name,
-//       cuisine_type: recipe.cuisine_type,
-//       total_cook_time: recipe.total_cook_time,
-//       })})
-//       .then(response => {
-//       response.json()
-//       }).then(function(body) {
-//       console.log('clientside put: ' + body);
-//       })
-//       .catch(error => console.log(error))
-//       }
-// }
-
-// export const removeRecipe = (index) => {
-//   return {
-//       type: 'REMOVE_RECIPE',
-//       value: index
-//   }
-// }
-
-export const getAllRecipes = () => {
-    return dispatch => {
-      fetch("/recipes")
-        .then(res => res.json())
-        .then(response => {
+export const updateRecipe = (recipe) => {
+  return dispatch => {
+    fetch(`/recipes/${recipe.id}`, { // backticks indicate you're creating a variable within a string. ${} indicates the variable you're referencing.
+      method: 'PUT',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+      recipe_name: recipe.recipe_name,
+      cuisine_type: recipe.cuisine_type,
+      total_cook_time: recipe.total_cook_time,
+      })})
+      .then(response => {
           const action = {
-            type: "FETCH_RECIPES",
+            type: "UPDATE_RECIPE",
             value: response
           };
           dispatch(action);
-        })
-      .catch(error => console.log(error));
-  } 
+      })
+      .catch(error => console.log("put request failing", error))
+      }
 }
+
+export const deleteRecipe = (recipe) => {
+  return dispatch => {
+    fetch(`/recipes/${recipe.id}`, { // backticks indicate you're creating a variable within a string. ${} indicates the variable you're referencing.
+    method: 'DELETE',
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      recipe_name: recipe.recipe_name,
+      cuisine_type: recipe.cuisine_type,
+      total_cook_time: recipe.total_cook_time,
+  })})
+    .then(response => {
+        const action = {
+          type: "DELETE_RECIPE",
+          value: response
+        };
+        dispatch(action);
+    })
+    .catch(error => console.log("delete request failing", error))
+    }
+  }
+
+
+

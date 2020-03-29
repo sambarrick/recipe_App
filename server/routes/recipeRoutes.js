@@ -5,12 +5,12 @@ const router = express.Router()
 
 router.get('/', recipeController.getAllRecipes)
 
-// router.get('/:id', authenticate, recipeController.getUserById) NOT SURE IF NEEDED
+router.get('/:id', recipeController.getRecipeById) 
 
 router.post('/', recipeController.addRecipe)
 
-//router.put('/', recipeController.updateRecipe)
+router.put('/:id', recipeController.updateRecipe)
 
-// router.delete('/recipes/:first_name', recipeController.deleteUserByFirstName)
+router.delete('/:id', recipeController.deleteRecipe)
 
 module.exports = router
