@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from "redux"
 
 const user = (state = null) => state;
 
@@ -12,13 +12,14 @@ const recipes = (state = [], action) => {
       return [...state, action.value];
     case "UPDATE_RECIPE":
       return [...state, action.value];
-    default:
-      return state;
+
     case "DELETE_RECIPE":
       const recipe = [...state];
       recipe.splice(action.value, 1);
       return recipe;
+      default:
+        return state
   }
-};
+}
 
 export default combineReducers({ user, recipes });

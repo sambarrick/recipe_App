@@ -3,6 +3,7 @@ import MaterialTable from "material-table";
 
 export default function Recipes(props) {
 
+  
   const [state, setState] = React.useState({
       
     columns: [
@@ -44,30 +45,35 @@ export default function Recipes(props) {
               {props.getAllRecipes()}
             }, 600)
           }),
+
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
             {console.log("row update", newData)}
             setTimeout(() => {
               resolve();
                {props.updateRecipe(newData)}
-              
-        
             }, 600);
               setTimeout(() => {
-                {props.getAllRecipes()}
-              }, 600)
+              {props.getAllRecipes()}
+            }, 600)
           }),
+
         onRowDelete: oldData =>
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
+              {props.deleteRecipe(oldData)}
               setState(prevState => {
                 const data = [...prevState.data];
                 data.splice(data.indexOf(oldData), 1);
                 return { ...prevState, data };
               });
             }, 600);
-          })
+            setTimeout(() => {
+              {props.getAllRecipes()}
+            }, 600)
+          }),
+         
       }}
       
     />
