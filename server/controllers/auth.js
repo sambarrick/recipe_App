@@ -1,11 +1,11 @@
-const mysql = require('mysql')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const pool = require('../sql/connection')
-const { handleSQLError } = require('../sql/error')
+// const mysql = require('mysql')
+// const bcrypt = require('bcrypt')
+// const jwt = require('jsonwebtoken')
+// const pool = require('../sql/connection')
+// const { handleSQLError } = require('../sql/error')
 
-// for bcrypt
-const saltRounds = 10
+// // for bcrypt
+// const saltRounds = 10
 
 // const signup = (req, res) => {
 //   const { username, password } = req.body
@@ -50,7 +50,7 @@ const saltRounds = 10
 //   })
 // }
 
-module.exports = {
-  signup,
-  login
-}
+// module.exports = {
+//   signup,
+//   login
+// }

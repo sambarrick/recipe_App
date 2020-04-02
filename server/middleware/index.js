@@ -1,4 +1,4 @@
-const jwt = require("");
+const jwt = require('jsonwebtoken');
 
 const logger = (req, res, next) => {
   console.log("Logging route:", req.path, new Date().toISOString());

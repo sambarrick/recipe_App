@@ -54,27 +54,27 @@ const deleteRecipe = (req, res) => {
   })
 }
 
+const createUser = (req, res) => {
+  const { firstName, lastName } = req.body
+  let sql = "INSERT INTO users (first_name, last_name) VALUES (?, ?)"
+  sql = mysql.format(sql, [ firstName, lastName ])
+
+  pool.query(sql, (err, results) => {
+    if (err) return handleSQLError(res, err)
+    return res.json({ newId: results.insertId });
+  })
+}
+
 module.exports = {
   getAllRecipes,
   getRecipeById,
   addRecipe,
   updateRecipe,
-  deleteRecipe
+  deleteRecipe,
+  createUser
 }
-
-// const createUser = (req, res) => {
-//   const { firstName, lastName } = req.body
-//   let sql = "INSERT INTO users (first_name, last_name) VALUES (?, ?)"
-//   sql = mysql.format(sql, [ firstName, lastName ])
-
-//   pool.query(sql, (err, results) => {
-//     if (err) return handleSQLError(res, err)
-//     return res.json({ newId: results.insertId });
-//   })
-// }
 
 // above exports NEED to match what the router is using AND the function const names
 
 // getUserById,
-//   createUser,
 //   deleteUserByFirstName
