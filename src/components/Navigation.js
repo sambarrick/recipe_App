@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { checkAuth } from "../Router";
 import NavigationLoggedIn from '../containers/NavigationLoggedIn'
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1

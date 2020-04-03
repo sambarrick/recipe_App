@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import MaterialTable from "material-table";
+import { Link } from "react-router-dom";
 
 export default function Recipes(props) {
 
@@ -28,9 +29,9 @@ export default function Recipes(props) {
   }, 600);
 
   return (
-      <Fragment>
+    <Fragment>
     <MaterialTable
-      title="My Recipes"
+    title= "My Recipes"
       columns={state.columns}
       data={state.data}
       
@@ -39,7 +40,7 @@ export default function Recipes(props) {
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
-              {props.addRecipe(newData)}
+             {props.addRecipe(newData)} 
             }, 600);
             setTimeout(() => {
               {props.getAllRecipes()}
@@ -48,13 +49,13 @@ export default function Recipes(props) {
 
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
-            {console.log("row update", newData)}
+           // {console.log("row update", newData)}
             setTimeout(() => {
               resolve();
                {props.updateRecipe(newData)}
             }, 600);
               setTimeout(() => {
-              {props.getAllRecipes()}
+               {props.getAllRecipes()}
             }, 600)
           }),
 

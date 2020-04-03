@@ -5,7 +5,7 @@ import Login from "./containers/Login"
 import Home from './containers/Home'
 import Recipes from "./containers/Recipes";
 import Groceries from "./containers/Groceries"
-import Signup from "./containers/Signup"
+import RecipeInfo from "./containers/RecipeInfo"
 
 // Write checkAuth function here
 // Check the cookies for a cookie called "loggedIn"
@@ -33,9 +33,9 @@ const Router = () => {
      <Route exact path="/" component={Login} />
       <Route path="/login" component={Login} />
       <Route path="/groceries" component={Groceries} />
-      <Route path="/signup" component={Signup} />
       <ProtectedRoute exact path="/home" component={Home} />
       <ProtectedRoute exact path="/recipes" component={Recipes} />
+      <ProtectedRoute exact path="/recipeinfo/:title" component={RecipeInfo} />
       {/*  <Route path="/business/:name" component={Business} /> */}
     </Switch>
   );

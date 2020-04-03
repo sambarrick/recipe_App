@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {TextField, Button, Container} from "@material-ui/core";
 import { Link } from 'react-router-dom';
+import Signup from './Signup'
 
 class App extends Component {
     state = {
@@ -57,13 +58,8 @@ class App extends Component {
         
           
           <form className="signup-form">
-                <h6 className="no-account">Don't have an account?</h6>
-                <Link to="/signup"><Button className="signup-button"
-                variant="contained"
-                color="secondary"
-                fullWidth
-                >
-                Signup</Button></Link>
+                <h5 className="no-account">Don't have an account?</h5>
+               <Signup />
                 </form>
                 </Container>
         </div>

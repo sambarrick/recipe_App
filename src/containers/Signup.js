@@ -1,11 +1,18 @@
 import { connect } from 'react-redux';
 import Signup from "../components/Signup"
+import {addUser} from '../redux/actions'
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        user: state.user,
-        recipe: state.recipe
+        addUser: (user) => dispatch(addUser(user))
     }
 }
 
-export default connect(mapStateToProps)(Signup)
+const mapStateToProps = (state) => {
+    return {
+        usersTotal: state.user.length
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)
+

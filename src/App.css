@@ -1,5 +1,3 @@
-
-
 a {
   text-decoration: none;
   color: inherit;
@@ -31,6 +29,17 @@ a {
   flex-direction: column;
   margin: 50px auto;
   width: 50%;
+}
+
+.signup-button {
+  background-color: rgb(255, 166, 0) !important;
+  color: rgb(255, 255, 255) !important;
+
+}
+
+#id-submit-button {
+  background-color: orange !important;
+  color: white !important;
 }
 
 .hamburger-button {
