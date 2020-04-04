@@ -28,7 +28,7 @@ export default function ButtonAppBar() {
           <IconButton color="inherit">
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-             <Link to="/home">Friends With Recipes</Link> 
+             <Link to="/recipes">Friends With Recipes</Link> 
           </Typography>
           <ul className="nav-list">
             <li className="nav-list-item">

@@ -105,9 +105,7 @@ export const deleteRecipe = (recipe) => {
 
   export const addUser = (user) => {
     return {
-        type: 'ADD_USERS',
+        type: 'ADD_USER',
         value: user
     }
 }
-
-
