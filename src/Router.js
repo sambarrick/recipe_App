@@ -8,7 +8,6 @@ import Groceries from "./containers/Groceries"
 import RecipeInfo from "./containers/RecipeInfo"
 
 // Write checkAuth function here
-// Check the cookies for a cookie called "loggedIn"
 export const checkAuth = () => {
   const cookies = cookie.parse(document.cookie);
   return cookies["loggedIn"] ? true : false;

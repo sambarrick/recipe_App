@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const authRouter = require('./routes/auth');
+const authRouter = require('../server/routes/auth');
 
 //require routes here
 const recipeRoutes = require("./routes/recipeRoutes");
@@ -24,7 +24,7 @@ app.use(logger);
 app.use("/recipes", recipeRoutes);
 
 // app.use('/users', usersRouter)
-// app.use('/auth', authRouter)
+//app.use('/auth', authRouter)
 
 
 //general
