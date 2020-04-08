@@ -6,16 +6,14 @@ import {
     DialogContent,
     DialogTitle
 } from '@material-ui/core'
+import { Link } from "react-router-dom";
 
 
 class Signup extends Component {
     state = {
         open: false,
-        firstname: '',
-        lastname: '',
-        username: '',
-        email: '',
-        password: ''
+        first_name: '',
+        last_name: '',
     }
 
     toggleDialog = () => this.setState({ open: !this.state.open })
@@ -38,11 +36,8 @@ class Signup extends Component {
     componentDidUpdate = (prevProps, prevState) => {
         if (prevState.open !== this.state.open) {
             this.setState({
-                firstname: '',
-                lastname: '',
-                username: '',
-                email: '',
-                password: ''
+                first_name: '',
+                last_name: ''
             })
         }
     }
@@ -70,36 +65,17 @@ class Signup extends Component {
                                 <TextField 
                                     id="firstname" 
                                     placeholder="First Name" 
-                                    value={this.state.firstname} 
+                                    value={this.state.first_name} 
                                     onChange={this.handleTextChange} 
                                     required />
                                     <TextField 
                                     id="lastname" 
                                     placeholder="Last Name" 
-                                    value={this.state.lastname} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="username" 
-                                    placeholder="Username" 
-                                    value={this.state.username} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <TextField 
-                                    id="email" 
-                                    placeholder="Email" 
-                                    value={this.state.email} 
+                                    value={this.state.last_name} 
                                     onChange={this.handleTextChange} 
                                     required />
                                 <br />
-                                <TextField 
-                                    id="password" 
-                                    placeholder="Password" 
-                                    value={this.state.password} 
-                                    onChange={this.handleTextChange} 
-                                    required />
-                                <br />
-                                <Button id="id-submit-button" variant="contained" type="submit">Create Account</Button>
+                               <Button id="id-submit-button" variant="contained" type="submit">Create Account</Button>
                             </form>
                         </DialogContent>
                     </Dialog>

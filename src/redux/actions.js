@@ -103,9 +103,35 @@ export const deleteRecipe = (recipe) => {
     }
   }
 
+  export const getAllUsers = () => {
+    return dispatch => {
+      fetch("/users")
+        .then(res => res.json())
+        .then(response => {
+          const action = {
+            type: "FETCH_USERS",
+            value: response
+          };
+          dispatch(action);
+        })
+      .catch(error => console.log(error));
+  } 
+  }
+
   export const addUser = (user) => {
-    return {
-        type: 'ADD_USER',
-        value: user
-    }
+    return dispatch => {
+      fetch("/users", {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+        first_name: user.first_name,
+        last_name: user.last_name
+        })})
+        .then(response => {
+        response.json()
+        }).then(function(body) {
+        console.log('clientside post: ' + body);
+        })
+        .catch(error => console.log(error))
+        }
 }

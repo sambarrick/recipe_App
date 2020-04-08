@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const user = (state = null) => state;
+// const user = (state = null) => state;
 
 const recipes = (state = [], action) => {
   switch (action.type) {
@@ -16,11 +16,20 @@ const recipes = (state = [], action) => {
       const recipe = [...state];
       recipe.splice(action.value, 1);
       return recipe;
-    default:
+      default:
       return state;
+  }
+}
+
+    const users = (state = [], action) => {
+    switch (action.type) {
+    case "FETCH_USERS":
+      return action.value;
     case "ADD_USER":
       return [...state, action.value];
+    default:
+      return state;
   }
-};
+}
 
-export default combineReducers({ user, recipes });
+export default combineReducers({ users, recipes });

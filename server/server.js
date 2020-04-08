@@ -22,8 +22,9 @@ app.use(logger);
 
 //app.use( all api routes) here
 app.use("/recipes", recipeRoutes);
+app.use("/users", recipeRoutes);
 
-// app.use('/users', usersRouter)
+//app.use('/users', usersRouter)
 //app.use('/auth', authRouter)
 
 

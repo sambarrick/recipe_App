@@ -9,10 +9,10 @@ export default function Recipes(props) {
       
     columns: [
       //{ title: "ID", field: "id", type: "numeric" },
-      { title: "Recipe Name", field: "recipe_name" },
+      { title: "Recipe Name", field: "recipe_name"}, 
       { title: "Cuisine Type", field: "cuisine_type" },
       { title: "Cook Time", field: "total_cook_time" }
-    ],
+    ], 
 
    data: [],
 
@@ -31,7 +31,7 @@ export default function Recipes(props) {
   return (
     <Fragment>
     <MaterialTable
-    title= "My Recipes"
+      title= "My Recipes"
       columns={state.columns}
       data={state.data}
       
@@ -78,6 +78,7 @@ export default function Recipes(props) {
       }}
       
     />
+    
       </Fragment>
   );
 }
