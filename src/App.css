@@ -24,11 +24,22 @@ a {
   width: 50%;
 }
 
+.paper {
+  text-align: center;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  margin:  auto;
+  background-color: #e81d1d !important;
+}
+
 .signup-form {
   display: flex;
   flex-direction: column;
   margin: 50px auto;
-  width: 50%;
+  width: 100%;
 }
 
 .signup-button {
@@ -49,12 +60,3 @@ a {
 .no-account {
   text-align: center;
 }
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

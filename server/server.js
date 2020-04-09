@@ -5,6 +5,7 @@ const authRouter = require('../server/routes/auth');
 
 //require routes here
 const recipeRoutes = require("./routes/recipeRoutes");
+const usersRoutes = require("./routes/usersRoutes");
 
 //calling middleware to log network activity
 const { logger, authenticate } = require('../server/middleware/index');
@@ -17,12 +18,12 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 //logger here to keep track of network activity
-app.use(logger);
+//app.use(logger);
 // THIS LINE OF CODE ALONE IS HOLDING ME UP //app.use(authenticate); //MAY NOT NEED THIS HERE. NOT ON THE AUTHENTICATION ASSIGNMENT 311 WK 6
 
 //app.use( all api routes) here
 app.use("/recipes", recipeRoutes);
-app.use("/users", recipeRoutes);
+app.use("/users", usersRoutes);
 
 //app.use('/users', usersRouter)
 //app.use('/auth', authRouter)

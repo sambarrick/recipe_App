@@ -5,7 +5,7 @@ import { addUser, getAllUsers } from '../redux/actions'
 const mapStateToProps = (state) => {
     return {
         user: state.user,
-        recipes: state.recipes
+        //recipes: state.recipes
     }
 }
 

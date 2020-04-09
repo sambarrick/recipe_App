@@ -52,31 +52,13 @@ const deleteRecipe = (req, res) => {
   })
 }
 
-const getAllUsers = (req, res) => {
-  pool.query("SELECT * FROM users", (err, rows) => {
-    if (err) return handleSQLError(res, err)
-    return res.json(rows);
-  })
-}
-
-const addUser = (req, res) => {
-  const { first_name, last_name } = req.body
-  let sql = "INSERT INTO users (first_name, last_name) VALUES (?, ?)"
-  sql = mysql.format(sql, [ first_name, last_name ])
-  pool.query(sql, (err, results) => {
-    if (err) return handleSQLError(res, err)
-    return res.json({ newId: results.insertId });
-  })
-}
 
 module.exports = {
   getAllRecipes,
   getRecipeById,
   addRecipe,
   updateRecipe,
-  deleteRecipe,
-  getAllUsers,
-  addUser
+  deleteRecipe
 }
 
 // above exports NEED to match what the router is using AND the function const names

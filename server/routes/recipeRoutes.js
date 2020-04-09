@@ -13,8 +13,4 @@ router.put('/:id', recipeController.updateRecipe)
 
 router.delete('/:id', recipeController.deleteRecipe)
 
-router.get('/', recipeController.getAllUsers)
-
-router.post('/', recipeController.addUser)
-
 module.exports = router

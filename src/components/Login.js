@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import {TextField, Button, Container} from "@material-ui/core";
+import {TextField, Button, Container, Typography, Grid, TableBody, TableCell, TableRow} from "@material-ui/core";
 import { Link } from 'react-router-dom';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Avatar from '@material-ui/core/Avatar';
 import Signup from './Signup'
 
 class App extends Component {
@@ -25,13 +27,21 @@ class App extends Component {
   
     render() {
       return (
-        <div className="App">
-          <Container maxWidth="sm">
+          <Container className="App" maxWidth="md">
             <form className="login-form" onSubmit={this.login}>
+            <Avatar className="avatar">
+ <LockOutlinedIcon />
+ </Avatar>
+ <br/>
+            <Typography className="paper" component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <br />
               <TextField
                 required
                 onChange={this.handleTextChange}
                 value={this.state.username}
+                variant="outlined"
                 name="username"
                 label="Username"
                 type="text" />
@@ -40,6 +50,7 @@ class App extends Component {
                 required
                 onChange={this.handleTextChange}
                 value={this.state.password}
+                variant="outlined"
                 name="password"
                 label="Password"
                 type="password" />
@@ -53,23 +64,28 @@ class App extends Component {
                 // passed automatically but you need to reference "this"
                 // to make it work
                 >Login</Button>
+                <br />
+                <Grid container>
+                       <Grid item xs className="forgot-password">
+                        <Link href="#" variant="body2">
+                          Forgot password?
+                        </Link>
+                      </Grid>
+                       <Grid item className="no-password">
+                         <Link to="/signup" variant="body2">
+                           No account? Sign Up
+                         </Link>
+                       </Grid>
+             </Grid>
             </form>
-          
-        
-          
-          <form className="signup-form">
-                <h5 className="no-account">Don't have an account?</h5>
-               <Signup />
-                </form>
                 </Container>
-        </div>
       );
     }
   }
   
   export default App;
 
-//   import React from 'react';
+// import React, { Component } from "react";
 // import Avatar from '@material-ui/core/Avatar';
 // import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -84,18 +100,6 @@ class App extends Component {
 // import { makeStyles } from '@material-ui/core/styles';
 // import Container from '@material-ui/core/Container';
 
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
 
 // const useStyles = makeStyles((theme) => ({
 //   paper: {
@@ -134,7 +138,6 @@ class App extends Component {
 //           <TextField
 //             variant="outlined"
 //             margin="normal"
-//             required
 //             fullWidth
 //             id="email"
 //             label="Email Address"
@@ -145,7 +148,6 @@ class App extends Component {
 //           <TextField
 //             variant="outlined"
 //             margin="normal"
-//             required
 //             fullWidth
 //             name="password"
 //             label="Password"
@@ -173,15 +175,14 @@ class App extends Component {
 //               </Link>
 //             </Grid>
 //             <Grid item>
-//               <Link href="#" variant="body2">
-//                 {"Don't have an account? Sign Up"}
+//               <Link href="/users" variant="body2">
+//                 Don't have an account? Sign Up
 //               </Link>
 //             </Grid>
 //           </Grid>
 //         </form>
 //       </div>
 //       <Box mt={8}>
-//         <Copyright />
 //       </Box>
 //     </Container>
 //   );
