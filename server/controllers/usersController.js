@@ -11,9 +11,9 @@ const getAllUsers = (req, res) => {
   }
   
   const addUser = (req, res) => {
-    const { first_name, last_name } = req.body
-    let sql = "INSERT INTO users (first_name, last_name) VALUES (?, ?)"
-    sql = mysql.format(sql, [ first_name, last_name ])
+    const { first_name, last_name, email, password } = req.body
+    let sql = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)"
+    sql = mysql.format(sql, [ first_name, last_name, email, password ])
     pool.query(sql, (err, results) => {
       if (err) return handleSQLError(res, err)
       return res.json({ newId: results.insertId });

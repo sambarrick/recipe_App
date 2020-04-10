@@ -12,9 +12,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getAllRecipes: () => dispatch(getAllRecipes()),
+    getRecipeById: recipe => dispatch(getRecipeById(recipe)),
     addRecipe: recipe => dispatch(addRecipe(recipe)),
     updateRecipe: recipe => dispatch(updateRecipe(recipe)),
-    getRecipeById: recipe => dispatch(getRecipeById(recipe)),
     deleteRecipe: recipe => dispatch(deleteRecipe(recipe))
   };
 };

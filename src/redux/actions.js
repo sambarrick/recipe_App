@@ -125,7 +125,9 @@ export const deleteRecipe = (recipe) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
         first_name: user.first_name,
-        last_name: user.last_name
+        last_name: user.last_name,
+        email: user.email,
+        password: user.password
         })})
         .then(response => {
         response.json()
