@@ -1,84 +1,99 @@
 import React, { Component } from "react";
-import {TextField, Button, Container, Typography, Grid, Avatar } from "@material-ui/core";
-import { Link } from 'react-router-dom';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import {
+  TextField,
+  Button,
+  Container,
+  Typography,
+  Grid,
+  Avatar
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
 class App extends Component {
-    state = {
-      email: "",
-      password: "",
-      loggedIn: false
-    }
-  
-    handleTextChange = e => {
-      const state = { ...this.state };
-      state[e.target.name] = e.target.value;
-      this.setState(state);
-    }
+  state = {
+    email: "",
+    password: "",
+    loggedIn: false
+  };
 
-    login = e => {
-      e.preventDefault();
-      // set cookie here
-      document.cookie = "loggedIn=true;max-age=60*5000";
-     window.location.replace("/recipes");
-    }
-  
-    render() {
-      return (
-          <Container className="App" maxWidth="sm">
-            <form className="login-form" onSubmit={this.login}>
-            <Avatar className="avatar">
- <LockOutlinedIcon />
- </Avatar>
- <br/>
-            <Typography className="login-header" component="h1" variant="h5">
-          Log In
-        </Typography>
-        <br />
-              <TextField
-                required
-                onChange={this.handleTextChange}
-                value={this.state.email}
-                variant="outlined"
-                name="email"
-                label="Email"
-                type="text" />
-                <br />
-              <TextField
-                required
-                onChange={this.handleTextChange}
-                value={this.state.password}
-                variant="outlined"
-                name="password"
-                label="Password"
-                type="password" />
-                <br />
-              <Button className="login-button"
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-                // onClick. Since this is a class based component, props are
-                // passed automatically but you need to reference "this"
-                // to make it work
-                >Login</Button>
-                <br />
-                <Grid container>
-                       <Grid item xs>
-                        <Link className="forgot-password" href="#" variant="body2">
-                          Forgot password?
-                        </Link>
-                      </Grid>
-                       <Grid item >
-                         <Link to="/signup" className="no-password" variant="body2">
-                           No account? Sign Up
-                         </Link>
-                       </Grid>
-             </Grid>
-            </form>
-                </Container>
-      );
-    }
+  handleTextChange = e => {
+    const state = { ...this.state };
+    state[e.target.name] = e.target.value;
+    this.setState(state);
+  };
+
+  login = e => {
+    e.preventDefault();
+    // set cookie here
+    document.cookie = "loggedIn=true;max-age=60*5000";
+    window.location.replace("/recipes");
+  };
+
+  render() {
+    return (
+      <Container className="App" maxWidth="sm">
+        <form className="login-form" onSubmit={this.login}>
+          <Avatar className="avatar">
+            <LockOutlinedIcon />
+          </Avatar>
+          <br />
+          <Typography className="login-header" component="h1" variant="h5">
+            Log In
+          </Typography>
+          <br />
+          <TextField
+            className="textfield-login-component"
+            required
+            onChange={this.handleTextChange}
+            value={this.state.email}
+            variant="outlined"
+            name="email"
+            label="Email"
+            type="text"
+            autoFocus
+          />
+          <br />
+          <TextField
+            className="textfield-login-component"
+            required
+            onChange={this.handleTextChange}
+            value={this.state.password}
+            variant="outlined"
+            name="password"
+            label="Password"
+            type="password"
+          />
+          <br />
+          <Button
+            className="login-button"
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            // onClick. Since this is a class based component, props are
+            // passed automatically but you need to reference "this"
+            // to make it work
+          >
+            Login
+          </Button>
+          <br />
+          <Grid container>
+            <Grid item xs>
+              <Link className="forgot-password" href="#" variant="body2">
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link to="/signup" className="no-password" variant="body2">
+                No account? Sign Up
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
+      </Container>
+    );
   }
-  
-  export default App;
+}
+
+export default App;

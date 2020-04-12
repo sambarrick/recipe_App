@@ -1,6 +1,12 @@
+/* Navigation.js Items */
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.nav-bar-color {
+  background-color: rgb(62, 182, 114) !important;
 }
 
 .nav-list {
@@ -15,7 +21,13 @@ a {
 
 .nav-list-item:hover {
   -webkit-animation: bounce 1s;
-  animation: pulse 1s;;
+  animation: pulse 1s;
+}
+
+/* Login.js Component Items */
+.App {
+  -webkit-animation: fadeInDown 1s;
+  /* animation: pulse 1s; */
 }
 
 .login-form {
@@ -33,13 +45,48 @@ a {
   display: flex;
   flex-direction: column;
   margin:  auto;
-  background-color: #e81d1d !important;
+  background-color: rgb(244, 166, 23) !important;
 }
 
-.hamburger-button {
-  color: white !important;
+.login-button {
+  background-color: rgb(62, 182, 114) !important;
 }
 
 .forgot-password, .no-password {
   font-size: 13px;
 }
+
+.forgot-password:hover, .no-password:hover {
+  color: rgb(244, 166, 23);
+} 
+
+/* Signup.js Component Items */
+
+.signup-component-container {
+  -webkit-animation: fadeInDown 1s;
+}
+
+#signup-lockout-icon {
+  background-color: rgb(244, 166, 23) !important;
+}
+
+#signup-button {
+  background-color: rgb(62, 182, 114) !important;
+}
+
+.already-have-an-account:hover {
+  color: rgb(252, 180, 47);
+}
+
+/* NavigationLoggedIn.js Component Items */
+
+.hamburger-button {
+  color: white !important;
+}
+
+/* Recipes.js Component Items */
+
+.material-icons:hover {
+  color: rgb(244, 166, 23);
+}
+

@@ -29,10 +29,10 @@ export default function Signup(props) {
 
   return (
     <div className="signup-component">
-    <Container component="main" maxWidth="xs">
+    <Container className="signup-component-container" component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar} id="signup-lockout-icon">
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -87,16 +87,19 @@ export default function Signup(props) {
               />
             </Grid>
           </Grid>
+          <Link to="/login">
           <Button
             type="submit"
             //onClick={this.props.addUser()} 
             fullWidth
+            id="signup-button"
             variant="contained"
             color="primary"
             className={classes.submit}
           >
             Sign Up
           </Button>
+          </Link>
           <Grid container justify="flex-end">
             <Grid item>
               <Link to="/login" className="already-have-an-account" variant="body2">
