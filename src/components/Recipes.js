@@ -11,7 +11,9 @@ export default function Recipes(props) {
       //{ title: "ID", field: "id", type: "numeric" },
       { title: "Recipe Name", field: "recipe_name"}, 
       { title: "Cuisine Type", field: "cuisine_type" },
-      { title: "Cook Time", field: "total_cook_time" }
+      { title: "Cook Time", field: "total_cook_time" },
+      { title: "Ingredients", field: "ingredients" },
+      { title: "Directions", field: "directions" }
     ], 
 
    data: [],
@@ -49,7 +51,6 @@ export default function Recipes(props) {
 
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
-           // {console.log("row update", newData)}
             setTimeout(() => {
               resolve();
                {props.updateRecipe(newData)}

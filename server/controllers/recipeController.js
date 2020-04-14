@@ -20,9 +20,9 @@ const getRecipeById = (req, res) => {
 }
 
 const addRecipe = (req, res) => {
-  const { recipe_name, cuisine_type, total_cook_time } = req.body
-  let sql = "INSERT INTO RECIPE_DATA (recipe_name, cuisine_type, total_cook_time) VALUES (?, ?, ?)"
-  sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time ])
+  const { recipe_name, cuisine_type, total_cook_time, ingredients, directions } = req.body
+  let sql = "INSERT INTO RECIPE_DATA (recipe_name, cuisine_type, total_cook_time, ingredients, directions) VALUES (?, ?, ?, ?, ?)"
+  sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time, ingredients, directions ])
 
   pool.query(sql, (err, results) => {
     if (err) return handleSQLError(res, err)
@@ -31,9 +31,9 @@ const addRecipe = (req, res) => {
 }
 
 const updateRecipe = (req, res) => {
-  const { recipe_name, cuisine_type, total_cook_time } = req.body
-  let sql = "UPDATE RECIPE_DATA SET recipe_name = ?,  cuisine_type = ?, total_cook_time = ? WHERE id = ?"
-  sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time, req.params.id ])
+  const { recipe_name, cuisine_type, total_cook_time, ingredients, directions } = req.body
+  let sql = "UPDATE RECIPE_DATA SET recipe_name = ?,  cuisine_type = ?, total_cook_time = ?, ingredients = ?, directions = ?, WHERE id = ?"
+  sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time, ingredients, directions, req.params.id ])
 
   pool.query(sql, (err, results) => {
     if (err) return handleSQLError(res, err)
@@ -42,7 +42,7 @@ const updateRecipe = (req, res) => {
 }
 
 const deleteRecipe = (req, res) => {
-  const { recipe_name, cuisine_type, total_cook_time } = req.body
+  const { recipe_name, cuisine_type, total_cook_time, ingredients, directions } = req.body
   let sql = "DELETE FROM RECIPE_DATA WHERE id = ?"
   sql = mysql.format(sql, [ req.params.id ])
 

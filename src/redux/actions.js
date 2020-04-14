@@ -91,6 +91,8 @@ export const deleteRecipe = (recipe) => {
       recipe_name: recipe.recipe_name,
       cuisine_type: recipe.cuisine_type,
       total_cook_time: recipe.total_cook_time,
+      ingredients: recipe.ingredients,
+      directions: recipe.directions
   })})
     .then(response => {
         const action = {
