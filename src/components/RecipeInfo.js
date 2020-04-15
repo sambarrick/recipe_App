@@ -4,8 +4,8 @@ import {
   } from "@material-ui/core";
 
   const RecipeInfo = (props) =>  {
-//     const name = props.match.params.name
-//     const recipe = props.recipe.find(c => c.name == name)
+    // const name = props.match.params.name
+    // const recipe = props.recipe.find(c => c.name == name)
     
     return(
 

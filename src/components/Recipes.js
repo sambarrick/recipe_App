@@ -36,13 +36,12 @@ export default function Recipes(props) {
       title= "My Recipes"
       columns={state.columns}
       data={state.data}
-      
       editable={{
         onRowAdd: newData =>
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
-             {props.addRecipe(newData)} 
+             {props.addRecipe(newData)}
             }, 600);
             setTimeout(() => {
               {props.getAllRecipes()}
