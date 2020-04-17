@@ -12,7 +12,7 @@ const { logger, authenticate } = require('../server/middleware/index');
 
 //using express()
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 //use json format and logger middleware
 app.use(bodyParser.json());
