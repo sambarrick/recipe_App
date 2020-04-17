@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config(); 
 const authRouter = require('../server/routes/auth');
 
 //require routes here
@@ -12,7 +14,7 @@ const { logger, authenticate } = require('../server/middleware/index');
 
 //using express()
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 
 //use json format and logger middleware
 app.use(bodyParser.json());

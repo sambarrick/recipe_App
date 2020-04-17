@@ -51,6 +51,8 @@ export const addRecipe = (recipe) => {
       recipe_name: recipe.recipe_name,
       cuisine_type: recipe.cuisine_type,
       total_cook_time: recipe.total_cook_time,
+      ingredients: recipe.ingredients,
+      directions: recipe.directions
       })})
       .then(response => {
       response.json()
@@ -70,6 +72,8 @@ export const updateRecipe = (recipe) => {
       recipe_name: recipe.recipe_name,
       cuisine_type: recipe.cuisine_type,
       total_cook_time: recipe.total_cook_time,
+      ingredients: recipe.ingredients,
+      directions: recipe.directions
       })})
       .then(response => {
           const action = {
