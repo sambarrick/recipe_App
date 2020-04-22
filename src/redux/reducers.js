@@ -1,7 +1,5 @@
 import { combineReducers } from "redux";
 
-// const user = (state = null) => state;
-
 const recipes = (state = [], action) => {
   switch (action.type) {
     case "FETCH_RECIPES":

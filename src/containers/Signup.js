@@ -5,15 +5,13 @@ import { addUser, getAllUsers } from '../redux/actions'
 const mapStateToProps = (state) => {
     return {
         user: state.user,
-        //recipes: state.recipes
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getAllUsers: () => dispatch(getAllUsers()),
-        addUser: user => dispatch(addUser(user))
+        addUser: (first_name, last_name, email, password) => dispatch(addUser(first_name, last_name, email, password))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)
-

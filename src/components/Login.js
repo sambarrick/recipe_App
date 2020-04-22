@@ -5,25 +5,25 @@ import {
   Container,
   Typography,
   Grid,
-  Avatar
+  Avatar,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import RestaurantIcon from "@material-ui/icons/Restaurant";
 
 class App extends Component {
   state = {
     email: "",
     password: "",
-    loggedIn: false
+    loggedIn: false,
   };
 
-  handleTextChange = e => {
+  handleTextChange = (e) => {
     const state = { ...this.state };
     state[e.target.name] = e.target.value;
     this.setState(state);
   };
 
-  login = e => {
+  login = (e) => {
     e.preventDefault();
     // set cookie here
     document.cookie = "loggedIn=true;max-age=60*5000";
@@ -35,7 +35,7 @@ class App extends Component {
       <Container className="App" maxWidth="sm">
         <form className="login-form" onSubmit={this.login}>
           <Avatar className="avatar">
-            <LockOutlinedIcon />
+            <RestaurantIcon />
           </Avatar>
           <br />
           <Typography className="login-header" component="h1" variant="h5">

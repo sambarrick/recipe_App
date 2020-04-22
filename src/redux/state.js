@@ -1,8 +1,10 @@
 export default {
     user: {
-        username: 'testUser',
+        first_name: 'Sam',
         email: 'testuser@example.com',
         loggedIn: false
+
+//test material only
     },
 
     recipes: [
@@ -10,5 +12,3 @@ export default {
 
     ]
 }
-
-//test material only
