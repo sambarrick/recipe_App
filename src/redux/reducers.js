@@ -25,6 +25,8 @@ const recipes = (state = [], action) => {
       return action.value;
     case "ADD_USER":
       return [...state, action.value];
+      case "GET_USERS_BY_ID":
+      return action.value;
     default:
       return state;
   }

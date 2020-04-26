@@ -135,6 +135,7 @@ export default function Signup(props) {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onSubmit={(first_name, last_name, email, password) => props.addUser(first_name, last_name, email, password)}
               >
                 Sign Up
               </Button>

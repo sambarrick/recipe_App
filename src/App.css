@@ -94,7 +94,13 @@ th{
   color: rgb(62, 182, 114) !important;
 }
 
-.MuiTableCell-body{
-  /* color: blue !important; */
+td:hover{
+  color: orange !important; 
+
+  
 }
+
+/* .MuiTableCell-body{
+  color: blue !important;
+} */
 

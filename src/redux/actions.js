@@ -143,3 +143,18 @@ export const deleteRecipe = (recipe) => {
         .catch(error => console.log(error))
         }
 }
+
+export const getUsersById = () => {
+  return dispatch => {
+    fetch("/users/:id")
+      .then(res => res.json())
+      .then(response => {
+        const action = {
+          type: "GET_USERS_BY_ID",
+          value: response
+        };
+        dispatch(action);
+      })
+    .catch(error => console.log(error));
+} 
+}
