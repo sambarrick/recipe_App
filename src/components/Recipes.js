@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import MaterialTable from "material-table";
-import { Link } from "react-router-dom";
-import { Button } from "@material-ui/core";
+
 
 export default function Recipes(props) {
 
@@ -13,7 +12,7 @@ export default function Recipes(props) {
       { title: "Cuisine Type", field: "cuisine_type" },
       { title: "Cook Time", field: "total_cook_time" },
       { title: "Ingredients", field: "ingredients" },
-      { title: "Directions", field: "directions" },
+      { title: "Directions", field: "directions" }
     ], 
 
    data: [],
@@ -36,6 +35,19 @@ export default function Recipes(props) {
       title= "My Recipes"
       columns={state.columns}
       data={state.data}
+      actions={[
+        {
+          icon: 'search',
+          tooltip: 'View Recipe',
+          onClick: (e, rowData) => {
+            console.log(e.target);
+            console.log(rowData);
+            // Do save operation
+            props.getRecipeById(rowData.id);
+            props.history.push(`/recipes/${rowData.id}`)
+          }
+        }
+      ]}
       editable={{
         onRowAdd: newData =>
           new Promise(resolve => {

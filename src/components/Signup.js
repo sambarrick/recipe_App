@@ -39,13 +39,13 @@ export default function Signup(props) {
   //useState states default value
   //setFirst_name updates the value based on what you type
 
-  const [first_name, setFirst_name] = useState("");
+  const [first_name, setFirst_name] = useState('');
 
-  const [last_name, setLast_name] = useState("");
+  const [last_name, setLast_name] = useState('');
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
 
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState('');
 
   const user = {
     first_name: first_name,
@@ -135,7 +135,7 @@ export default function Signup(props) {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
-                onSubmit={(first_name, last_name, email, password) => props.addUser(first_name, last_name, email, password)}
+                onSubmit={(user) => props.addUser(user)}
               >
                 Sign Up
               </Button>

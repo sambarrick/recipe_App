@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { checkAuth } from "../Router";
 import NavigationLoggedIn from '../containers/NavigationLoggedIn'
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -31,9 +30,6 @@ export default function ButtonAppBar() {
              <Link to="/recipes">Friends With Recipes</Link> 
           </Typography>
           <ul className="nav-list">
-            <li className="nav-list-item">
-              <Link to="/groceries">Groceries</Link>
-            </li>
             <li className="nav-list-item">
             {!checkAuth() ? <Link to="/login">Login</Link>
             : <NavigationLoggedIn />}

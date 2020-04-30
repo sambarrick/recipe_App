@@ -2,16 +2,16 @@ import { connect } from 'react-redux';
 import Signup from "../components/Signup"
 import { addUser, getAllUsers, getUsersById } from '../redux/actions'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         user: state.user,
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         getAllUsers: () => dispatch(getAllUsers()),
-        addUser: (first_name, last_name, email, password) => dispatch(addUser(first_name, last_name, email, password)),
+        addUser: user => dispatch(addUser(user)),
         getUsersById: user => dispatch(getUsersById(user)),
     }
 }

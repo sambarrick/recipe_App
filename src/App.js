@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import Router from'./Router'
 import store from './redux/store'
+import { Security, ImplicitCallback } from '@okta/okta-react';
 
 import './App.css';
 

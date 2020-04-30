@@ -80,7 +80,7 @@ class App extends Component {
           <br />
           <Grid container>
             <Grid item xs>
-              <Link className="forgot-password" href="#" variant="body2">
+              <Link to="/signup" className="forgot-password" variant="body2">
                 Forgot password?
               </Link>
             </Grid>

@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from "react-router"
 import cookie from "cookie"
 import Login from "./containers/Login"
 import Recipes from "./containers/Recipes";
-import Groceries from "./containers/Groceries"
 import RecipeInfo from "./containers/RecipeInfo"
 import Signup from "./containers/Signup"
 
@@ -32,9 +31,8 @@ const Router = () => {
      <Route exact path="/" component={Login} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
-      <Route path="/groceries" component={Groceries} />
+      <Route path="/recipes/:id" component={RecipeInfo} />
       <Route path="/recipes" component={Recipes} />
-      <Route path="/recipeinfo" component={RecipeInfo} />
     </Switch>
   );
 };

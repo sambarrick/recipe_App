@@ -91,16 +91,10 @@ a {
 }
 
 th{
-  color: rgb(62, 182, 114) !important;
+  color: rgb(220, 143, 0) !important;
 }
 
-td:hover{
-  color: orange !important; 
-
-  
+/* RecipeInfo.js Items */
+.edit-recipe-icon:hover{
+  color: rgb(244, 166, 23);
 }
-
-/* .MuiTableCell-body{
-  color: blue !important;
-} */
-
