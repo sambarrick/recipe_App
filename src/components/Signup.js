@@ -54,6 +54,8 @@ export default function Signup(props) {
     password: password,
   };
 
+
+
   console.log("field updated", user);
 
   return (
@@ -71,7 +73,7 @@ export default function Signup(props) {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form className={classes.form} onSubmit={(first_name, last_name, email, password) => props.addUser(first_name, last_name, email, password)}>
+          <form className={classes.form} onSubmit={() => props.addUser(user)}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -128,6 +130,7 @@ export default function Signup(props) {
                 />
               </Grid>
             </Grid>
+            <Link to="/success">
               <Button
                 type="submit"
                 fullWidth
@@ -135,10 +138,10 @@ export default function Signup(props) {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
-                onSubmit={(user) => props.addUser(user)}
               >
                 Sign Up
               </Button>
+              </Link>
             <Grid container justify="flex-end">
               <Grid item>
                 <Link

@@ -53,9 +53,11 @@ export default function Recipes(props) {
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
+              // eslint-disable-next-line
              {props.addRecipe(newData)}
             }, 600);
             setTimeout(() => {
+              // eslint-disable-next-line
               {props.getAllRecipes()}
             }, 600)
           }),
@@ -64,9 +66,11 @@ export default function Recipes(props) {
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
+              // eslint-disable-next-line
                {props.updateRecipe(newData)}
             }, 600);
               setTimeout(() => {
+                // eslint-disable-next-line
                {props.getAllRecipes()}
             }, 600)
           }),
@@ -75,6 +79,7 @@ export default function Recipes(props) {
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
+              // eslint-disable-next-line
               {props.deleteRecipe(oldData)}
               setState(prevState => {
                 const data = [...prevState.data];
@@ -83,6 +88,7 @@ export default function Recipes(props) {
               });
             }, 600);
             setTimeout(() => {
+              // eslint-disable-next-line
               {props.getAllRecipes()}
             }, 600)
           }),

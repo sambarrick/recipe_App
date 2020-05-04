@@ -39,6 +39,7 @@ a {
 
 .login-header {
   text-align: center;
+  color: rgb(62, 182, 114) !important;
 }
 
 .avatar {

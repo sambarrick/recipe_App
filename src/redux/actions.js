@@ -125,6 +125,7 @@ export const deleteRecipe = (recipe) => {
   }
 
   export const addUser = (user) => {
+    console.log(user);
     return dispatch => {
       fetch("/users", {
         method: 'POST',
