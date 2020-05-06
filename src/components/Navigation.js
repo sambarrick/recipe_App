@@ -26,8 +26,7 @@ export default function ButtonAppBar() {
     <div>
       <AppBar position="relative" className="nav-bar-color">
         <Toolbar>
-          <IconButton color="inherit">
-          </IconButton>
+          
           <Typography variant="h6" className={classes.title} id="fwr-header">
              <Link to="/recipes">Friends With Recipes</Link> 
           </Typography>

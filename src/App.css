@@ -108,3 +108,12 @@ th{
 .edit-recipe-icon:hover{
   color: rgb(244, 166, 23);
 }
+
+.edit-recipe-icon:hover {
+  cursor: pointer;
+}
+
+.back-to-recipes {
+  background-color: rgb(62, 182, 114) !important;
+  color: white !important;
+}

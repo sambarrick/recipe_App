@@ -4,7 +4,7 @@ import { getAllRecipes, getRecipeById, addRecipe, updateRecipe, deleteRecipe} fr
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
+    //user: state.user,
     recipes: state.recipes
   };
 };

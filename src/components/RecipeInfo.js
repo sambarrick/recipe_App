@@ -1,18 +1,32 @@
 import React from "react";
-import { Container, TextField, Tooltip } from "@material-ui/core";
+import { Container, TextField, Tooltip, Button } from "@material-ui/core";
 import SaveIcon from '@material-ui/icons/Save';
-
+import { Link } from "react-router-dom";
 
 const RecipeInfo = (props) => {
-  // const name = props.match.params.name
-  // const recipe = props.recipe.find(c => c.name == name);
+
+  const [state, setState] = React.useState({
+    ingredients: "",
+    directions: ""
+  });
+
+
+  props.recipes.length === 0 ? props.getAllRecipes() : 
+  console.log("data already exists for recipe")
+
+  const id = props.match.params.id
+  const recipez = props.recipes.find(c => c.id == id);
+  console.log(state, "did it work?")
+
+  if(props.recipes.length> 0){
 
   return (
     
+    
 <Container className="recipe-container">
- <h2> <span className="recipe-description-span">Recipe Name: </span>{/* recipe.recipe_name */}</h2>
- <h4> <span className="recipe-description-span">Cuisine Type: </span>{/* recipe.cuisine_type */}</h4>
- <h4> <span className="recipe-description-span">Cook Time: </span>{/* recipe.total_cook_time */}</h4>
+ <h2> <span className="recipe-description-span">Recipe Name: </span>{ recipez.recipe_name }</h2>
+ <h4> <span className="recipe-description-span">Cuisine Type: </span>{ recipez.cuisine_type }</h4>
+ <h4> <span className="recipe-description-span">Cook Time: </span>{ recipez.total_cook_time }</h4>
  <h4> <span className="recipe-description-span">Ingredients: </span>
 
  <TextField
@@ -21,9 +35,15 @@ const RecipeInfo = (props) => {
  placeholder="Edit ingredients info"
  multiline
  variant="outlined"
+ value={state.ingredients}
+ onChange={ (e) => { setState({
+    ingredients: e.target.value
+ })
+ } }
 />
 <Tooltip title="Save">
-<SaveIcon className="edit-recipe-icon"/>
+<SaveIcon className="edit-recipe-icon" //onClick={props.updateRecipe(recipe)}
+/>
 </Tooltip>
 </h4>
 
@@ -40,10 +60,18 @@ const RecipeInfo = (props) => {
 <Tooltip title="Save">
 <SaveIcon className="edit-recipe-icon"/>
 </Tooltip></h4>
+
+<Link to="/recipes">
+<Button className="back-to-recipes">
+Back to Recipes
+</Button>
+</Link>
 </Container>
   );
+  } else {
+    return <div></div> //dummy placeholder
+  }
 };
 
 
-export default RecipeInfo;
-
+export default RecipeInfo;git 

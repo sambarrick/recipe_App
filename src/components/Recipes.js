@@ -4,7 +4,8 @@ import MaterialTable from "material-table";
 
 export default function Recipes(props) {
 
-  
+  console.log(props);
+
   const [state, setState] = React.useState({
       
     columns: [
@@ -18,15 +19,21 @@ export default function Recipes(props) {
    data: [],
 
   });
+
+  
   
   props.recipes.length === 0 ? props.getAllRecipes() : 
   setTimeout(() => { //setTimeout only hits ONCE, which is why the state
     // is only being set once.
 
-    setState(prevState => {
+    if(state.data.length === 0){
+      setState(prevState => {
         const data = props.recipes;
         return { ...prevState, data };
     });
+    }
+
+   
   }, 600);
 
   return (
@@ -40,8 +47,8 @@ export default function Recipes(props) {
           icon: 'search',
           tooltip: 'View Recipe',
           onClick: (e, rowData) => {
-            console.log(e.target);
-            console.log(rowData);
+            console.log(e.target, "e.target");
+            console.log(rowData, "rowData");
             // Do save operation
             props.getRecipeById(rowData.id);
             props.history.push(`/recipes/${rowData.id}`)
