@@ -19,7 +19,17 @@ a {
   font-size: 16px !important;
 }
 
+#fwr-header{
+  font-weight: bold;
+}
+
 .nav-list-item:hover {
+  -webkit-animation: bounce 1s;
+  animation: pulse 1s;
+}
+
+.login-btn-navigation:hover {
+  cursor: pointer;
   -webkit-animation: bounce 1s;
   animation: pulse 1s;
 }
@@ -39,7 +49,6 @@ a {
 
 .login-header {
   text-align: center;
-  color: rgb(62, 182, 114) !important;
 }
 
 .avatar {
