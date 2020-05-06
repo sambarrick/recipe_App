@@ -19,8 +19,6 @@ export default function Recipes(props) {
    data: [],
 
   });
-
-  
   
   props.recipes.length === 0 ? props.getAllRecipes() : 
   setTimeout(() => { //setTimeout only hits ONCE, which is why the state
@@ -32,7 +30,6 @@ export default function Recipes(props) {
         return { ...prevState, data };
     });
     }
-
    
   }, 600);
 

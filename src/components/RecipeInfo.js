@@ -74,4 +74,4 @@ Back to Recipes
 };
 
 
-export default RecipeInfo;git 
+export default RecipeInfo;
