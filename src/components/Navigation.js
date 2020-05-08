@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import { checkAuth } from "../Router";
-import NavigationLoggedIn from '../containers/NavigationLoggedIn'
 import { useAuth0 } from '../contexts/auth0-context';
 
 const useStyles = makeStyles(theme => ({
@@ -48,8 +47,6 @@ export default function ButtonAppBar() {
               <div>
                 {/* <h1>You are logged in!</h1> */}
                 <p>Hello {user.name}</p>
-    
-                {/* {user.picture && <img src={user.picture} alt="My Avatar" />} */}
 
               <button
                     onClick={() => logout({ returnTo: window.location.origin })}

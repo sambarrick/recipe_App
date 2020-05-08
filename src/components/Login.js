@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
+import { useAuth0 } from '../contexts/auth0-context';
 
 class App extends Component {
   state = {

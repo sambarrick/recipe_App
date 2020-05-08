@@ -11,12 +11,13 @@ const RecipeInfo = (props) => {
   });
 
 
-  props.recipes.length === 0 ? props.getAllRecipes() : 
+  props.recipes.length > 0 ? props.getAllRecipes() :  
+  //changed it to > 0 since === 0 was console logging "data already exists for recipe" infinitely
   console.log("data already exists for recipe")
 
   const id = props.match.params.id
   const recipez = props.recipes.find(c => c.id == id);
-  console.log(state, "did it work?")
+  console.log(state)
 
   if(props.recipes.length> 0){
 
@@ -28,7 +29,6 @@ const RecipeInfo = (props) => {
  <h4> <span className="recipe-description-span">Cuisine Type: </span>{ recipez.cuisine_type }</h4>
  <h4> <span className="recipe-description-span">Cook Time: </span>{ recipez.total_cook_time }</h4>
  <h4> <span className="recipe-description-span">Ingredients: </span>
-
  <TextField
  id="outlined-textarea"
  label="Edit ingredients info"
@@ -42,7 +42,8 @@ const RecipeInfo = (props) => {
  } }
 />
 <Tooltip title="Save">
-<SaveIcon className="edit-recipe-icon" //onClick={props.updateRecipe(recipe)}
+<SaveIcon className="edit-recipe-icon" 
+//onClick={props.updateRecipe(recipez.id)}
 />
 </Tooltip>
 </h4>
@@ -55,7 +56,11 @@ const RecipeInfo = (props) => {
  placeholder="Edit directions info"
  multiline
  variant="outlined"
- tooltip="Save"
+ value={state.directions}
+ onChange={ (e) => { setState({
+    ingredients: e.target.value
+ })
+ } }
 />
 <Tooltip title="Save">
 <SaveIcon className="edit-recipe-icon"/>

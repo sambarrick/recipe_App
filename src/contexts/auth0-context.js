@@ -58,7 +58,7 @@ export class Auth0Provider extends Component {
 
     render() {
         const { auth0Client, isLoading, isAuthenticated, user } = this.state;
-    const { children } = this.props;
+        const { children } = this.props;
 
     const configObject = {
       isLoading,
