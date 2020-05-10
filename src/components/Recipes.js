@@ -1,11 +1,9 @@
 import React, { Fragment } from "react";
 import MaterialTable from "material-table";
-
+import { useAuth0 } from '../contexts/auth0-context';
 
 export default function Recipes(props) {
-
-  console.log(props);
-
+  const { isLoading, user, loginWithRedirect, logout } = useAuth0();
   const [state, setState] = React.useState({
       
     columns: [
@@ -35,6 +33,14 @@ export default function Recipes(props) {
 
   return (
     <Fragment>
+
+    {!isLoading && user && (
+      <div className="hello-username">
+        <p>Hello, {user.name}!</p>
+        </div>
+    
+    )}
+
     <MaterialTable
       title= "My Recipes"
       columns={state.columns}
@@ -103,3 +109,4 @@ export default function Recipes(props) {
     
       </Fragment>
   );
+}

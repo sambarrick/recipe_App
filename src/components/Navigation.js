@@ -30,10 +30,10 @@ export default function ButtonAppBar() {
              <Link to="/recipes">Friends With Recipes</Link> 
           </Typography>
           <ul className="nav-list">
-           {/* } <li className="nav-list-item">
+           {/*   <li className="nav-list-item">
             {!checkAuth() ? <Link to="/login">Login</Link> 
-            : <NavigationLoggedIn />} 
-            </li> */}
+            : <Link to="/recipes"></Link>} 
+  </li> */}
             <li>
             {!isLoading && !user && (
               <div>
@@ -45,16 +45,12 @@ export default function ButtonAppBar() {
             </li>
             {!isLoading && user && (
               <div>
-                {/* <h1>You are logged in!</h1> */}
-                <p>Hello {user.name}</p>
-
-              <button
+              <h3
                     onClick={() => logout({ returnTo: window.location.origin })}
-                    className="button is-small is-dark"
+                    className="logout"
                   >
                     Logout
-              </button>
-    
+              </h3>
                 </div>
             
             )}

@@ -65,7 +65,7 @@ export const addRecipe = (recipe) => {
 
 export const updateRecipe = (recipe) => {
   return dispatch => {
-    fetch(`/recipes/${recipe.id}`, { // backticks indicate you're creating a variable within a string. ${} indicates the variable you're referencing.
+    fetch(`/recipes/${recipe.id}`, { 
       method: 'PUT',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({

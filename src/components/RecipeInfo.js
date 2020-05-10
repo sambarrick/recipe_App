@@ -11,13 +11,13 @@ const RecipeInfo = (props) => {
   });
 
 
-  props.recipes.length > 0 ? props.getAllRecipes() :  
+  props.recipes.length === 0 ? props.getAllRecipes() :  
   //changed it to > 0 since === 0 was console logging "data already exists for recipe" infinitely
   console.log("data already exists for recipe")
 
   const id = props.match.params.id
   const recipez = props.recipes.find(c => c.id == id);
-  console.log(state)
+
 
   if(props.recipes.length> 0){
 
@@ -58,7 +58,7 @@ const RecipeInfo = (props) => {
  variant="outlined"
  value={state.directions}
  onChange={ (e) => { setState({
-    ingredients: e.target.value
+    directions: e.target.value
  })
  } }
 />

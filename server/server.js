@@ -10,7 +10,7 @@ const recipeRoutes = require("./routes/recipeRoutes");
 const usersRoutes = require("./routes/usersRoutes");
 
 //calling middleware to log network activity
-const { logger, authenticate } = require('../server/middleware/index');
+//const { logger, authenticate } = require('../server/middleware/index');
 
 //using express()
 const app = express();
