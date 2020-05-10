@@ -105,12 +105,14 @@ a {
 }
 
 th{
-  color: rgb(220, 143, 0) !important;
+  color: rgb(244, 166, 23) !important;
+  font-weight: bold !important;
 }
 
 .hello-username {
   text-align: right;
   margin-right: 1.25%;
+  font-weight: bolder;
 }
 
 /* RecipeInfo.js Items */
