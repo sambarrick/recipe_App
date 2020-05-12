@@ -10,8 +10,8 @@ export default function Recipes(props) {
       { title: "Recipe Name", field: "recipe_name"}, 
       { title: "Cuisine Type", field: "cuisine_type" },
       { title: "Cook Time", field: "total_cook_time" },
-      { title: "Ingredients", field: "ingredients" },
-      { title: "Directions", field: "directions" }
+      //{ title: "Ingredients", field: "ingredients" },
+      //{ title: "Directions", field: "directions" }
     ], 
 
    data: [],
