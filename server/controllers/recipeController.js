@@ -32,10 +32,12 @@ const addRecipe = (req, res) => {
 
 const updateRecipe = (req, res) => {
   const { recipe_name, cuisine_type, total_cook_time, ingredients, directions } = req.body
-  let sql = "UPDATE RECIPE_DATA SET recipe_name = ?,  cuisine_type = ?, total_cook_time = ?, ingredients = ?, directions = ?, WHERE id = ?"
+  let sql = "UPDATE `RECIPE_DATA` SET `recipe_name` = ?,  `cuisine_type` = ?, `total_cook_time` = ?, `ingredients` = ?, `directions` = ? WHERE id = ?;";
   sql = mysql.format(sql, [ recipe_name, cuisine_type, total_cook_time, ingredients, directions, req.params.id ])
+  console.log("did this work wtf", sql)
 
   pool.query(sql, (err, results) => {
+    console.log("error", err)
     if (err) return handleSQLError(res, err)
     return res.json("nice job son");
   })
@@ -51,7 +53,6 @@ const deleteRecipe = (req, res) => {
     return res.json({ message: `Deleted ${results.affectedRows} user(s)` });
   })
 }
-
 
 module.exports = {
   getAllRecipes,

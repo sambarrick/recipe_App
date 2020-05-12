@@ -43,7 +43,8 @@ class App extends Component {
             Log In
           </Typography>
           <br />
-          <p>Welcome! Please log in to view your recipes</p>
+          <p className="welcome">Welcome!</p> 
+          <p className="please-log-in">Please log in to view your recipes</p>
           <TextField
             className="textfield-login-component"
             required

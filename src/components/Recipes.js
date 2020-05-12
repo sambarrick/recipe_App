@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import MaterialTable from "material-table";
 import { useAuth0 } from '../contexts/auth0-context';
 
@@ -17,6 +17,10 @@ export default function Recipes(props) {
    data: [],
 
   });
+
+  useEffect(() => {
+    props.getAllRecipes()
+  }, [state.data])
   
   props.recipes.length === 0 ? props.getAllRecipes() : 
   setTimeout(() => { //setTimeout only hits ONCE, which is why the state
@@ -65,12 +69,13 @@ export default function Recipes(props) {
               resolve();
               // eslint-disable-next-line
              {props.addRecipe(newData)}
-            }, 600);
-            setTimeout(() => {
-              // eslint-disable-next-line
-              {props.getAllRecipes()}
-            }, 600)
-          }),
+             setState((prevState) => {
+              const data = [...prevState.data];
+              data.push(newData);
+              return { ...prevState, data };
+            });
+          }, 600);
+        }),
 
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
@@ -78,10 +83,13 @@ export default function Recipes(props) {
               resolve();
               // eslint-disable-next-line
                {props.updateRecipe(newData)}
-            }, 600);
-              setTimeout(() => {
-                // eslint-disable-next-line
-               {props.getAllRecipes()}
+               if (oldData) {
+                setState((prevState) => {
+                  const data = [...prevState.data];
+                  data[data.indexOf(oldData)] = newData;
+                  return { ...prevState, data };
+                });
+              }
             }, 600)
           }),
 

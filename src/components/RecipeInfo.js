@@ -25,10 +25,11 @@ const RecipeInfo = (props) => {
     
     
 <Container className="recipe-container">
- <h2> <span className="recipe-description-span">Recipe Name: </span>{ recipez.recipe_name }</h2>
+ <h2> { recipez.recipe_name } </h2>
  <h4> <span className="recipe-description-span">Cuisine Type: </span>{ recipez.cuisine_type }</h4>
  <h4> <span className="recipe-description-span">Cook Time: </span>{ recipez.total_cook_time }</h4>
- <h4> <span className="recipe-description-span">Ingredients: </span>
+ <h4> <span className="recipe-description-span-ingredients-directions">Ingredients: </span>
+ <br /> <br />
  <TextField
  id="outlined-textarea"
  label="Edit ingredients info"
@@ -37,20 +38,20 @@ const RecipeInfo = (props) => {
  variant="outlined"
  value={state.ingredients}
  onChange={ (e) => { setState({
-    ingredients: e.target.value
+      ingredients: e.target.value
  })
- } }
+ } 
+}
 />
 <Tooltip title="Save">
-<SaveIcon className="edit-recipe-icon" 
-//onClick={props.updateRecipe(recipez.id)}
-/>
+<Button onClick={() => props.updateRecipe(recipez.id)}><SaveIcon className="edit-recipe-icon" 
+/></Button>
 </Tooltip>
 </h4>
 
- <h4> <span className="recipe-description-span">Directions: </span>
-
- <TextField
+ <h4> <span className="recipe-description-span-ingredients-directions">Directions: </span>
+ <br /> <br />
+  <TextField
  id="outlined-textarea"
  label="Edit directions info"
  placeholder="Edit directions info"
@@ -67,9 +68,9 @@ const RecipeInfo = (props) => {
 </Tooltip></h4>
 
 <Link to="/recipes">
-<Button className="back-to-recipes">
-Back to Recipes
-</Button>
+  <Button className="back-to-recipes">
+    Back to Recipes
+  </Button>
 </Link>
 </Container>
   );
