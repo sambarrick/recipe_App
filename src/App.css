@@ -124,23 +124,12 @@ th{
 }
 
 /* RecipeInfo.js Items */
-.edit-recipe-icon:hover{
-  color: rgb(244, 166, 23);
-}
-
-.edit-recipe-icon:hover {
-  cursor: pointer;
-}
-
-.edit-recipe-icon {
-  margin-left: 5px;
-}
-
-.recipe-description-span-ingredients-directions {
-  margin-bottom: 20px;
-}
 
 .back-to-recipes {
-  background-color: rgb(62, 182, 114) !important;
+  background-color: rgb(244, 166, 23) !important;
   color: white !important;
+}
+.edit-recipe-icon:hover{
+  color: rgb(244, 166, 23);
+  cursor: pointer;
 }

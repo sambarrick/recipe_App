@@ -25,14 +25,12 @@ export default function Recipes(props) {
   props.recipes.length === 0 ? props.getAllRecipes() : 
   setTimeout(() => { //setTimeout only hits ONCE, which is why the state
     // is only being set once.
-
     if(state.data.length === 0){
       setState(prevState => {
         const data = props.recipes;
         return { ...prevState, data };
     });
     }
-   
   }, 600);
 
   return (

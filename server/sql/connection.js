@@ -9,8 +9,7 @@ class Connection {
         host: '34.71.170.227',
         user: 'root',
         password: '',
-        database: 'recipe_app_sql_db',
-        debug: true
+        database: 'recipe_app_sql_db'
       })
 console.log("connection made")
       return this.pool

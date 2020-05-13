@@ -7,8 +7,10 @@ const RecipeInfo = (props) => {
 
   const [state, setState] = React.useState({
     ingredients: "",
-    directions: ""
+    directions: "",
+    data: []
   });
+
 
 
   props.recipes.length === 0 ? props.getAllRecipes() :  
@@ -19,12 +21,19 @@ const RecipeInfo = (props) => {
   const recipez = props.recipes.find(c => c.id == id);
 
 
-  if(props.recipes.length> 0){
+  if(props.recipes.length > 0){
 
   return (
     
     
 <Container className="recipe-container">
+<br/>
+<Link to="/recipes">
+  <Button className="back-to-recipes">
+    Back to Recipes
+  </Button>
+</Link>
+
  <h2> { recipez.recipe_name } </h2>
  <h4> <span className="recipe-description-span">Cuisine Type: </span>{ recipez.cuisine_type }</h4>
  <h4> <span className="recipe-description-span">Cook Time: </span>{ recipez.total_cook_time }</h4>
@@ -32,8 +41,8 @@ const RecipeInfo = (props) => {
  <br /> <br />
  <TextField
  id="outlined-textarea"
- label="Edit ingredients info"
- placeholder="Edit ingredients info"
+ //label="Edit ingredients info"
+ placeholder="Edit ingredients"
  multiline
  variant="outlined"
  value={state.ingredients}
@@ -44,7 +53,7 @@ const RecipeInfo = (props) => {
 }
 />
 <Tooltip title="Save">
-<Button onClick={() => props.updateRecipe(recipez.id)}><SaveIcon className="edit-recipe-icon" 
+<Button onClick={() => props.updateRecipe()}><SaveIcon className="edit-recipe-icon" 
 /></Button>
 </Tooltip>
 </h4>
@@ -53,8 +62,8 @@ const RecipeInfo = (props) => {
  <br /> <br />
   <TextField
  id="outlined-textarea"
- label="Edit directions info"
- placeholder="Edit directions info"
+ //label="Edit directions info"
+ placeholder="Edit directions"
  multiline
  variant="outlined"
  value={state.directions}
@@ -64,14 +73,10 @@ const RecipeInfo = (props) => {
  } }
 />
 <Tooltip title="Save">
-<SaveIcon className="edit-recipe-icon"/>
+<Button onClick={() => props.updateRecipe(recipez.id)}><SaveIcon className="edit-recipe-icon" 
+/></Button>
 </Tooltip></h4>
 
-<Link to="/recipes">
-  <Button className="back-to-recipes">
-    Back to Recipes
-  </Button>
-</Link>
 </Container>
   );
   } else {
