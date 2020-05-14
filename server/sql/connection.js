@@ -6,7 +6,7 @@ class Connection {
       console.log('creating mysql connection...')
       this.pool = mysql.createPool({
         connectionLimit: 100,
-        host: '34.71.170.227',
+        host: '34.71.170.226',
         user: 'root',
         password: '',
         database: 'recipe_app_sql_db'

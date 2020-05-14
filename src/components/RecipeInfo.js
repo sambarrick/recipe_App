@@ -11,20 +11,24 @@ const RecipeInfo = (props) => {
     data: []
   });
 
-
+  // const newIngredient = (e) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     data: [...this.state.data, this.state.ingredients],
+  //     ingredients: ""
+  //   })
+  // }
 
   props.recipes.length === 0 ? props.getAllRecipes() :  
   //changed it to > 0 since === 0 was console logging "data already exists for recipe" infinitely
-  console.log("data already exists for recipe")
+  console.log(state.ingredients);
 
   const id = props.match.params.id
   const recipez = props.recipes.find(c => c.id == id);
 
-
   if(props.recipes.length > 0){
 
   return (
-    
     
 <Container className="recipe-container">
 <br/>
@@ -37,11 +41,11 @@ const RecipeInfo = (props) => {
  <h2> { recipez.recipe_name } </h2>
  <h4> <span className="recipe-description-span">Cuisine Type: </span>{ recipez.cuisine_type }</h4>
  <h4> <span className="recipe-description-span">Cook Time: </span>{ recipez.total_cook_time }</h4>
- <h4> <span className="recipe-description-span-ingredients-directions">Ingredients: </span>
+ <h4> <span className="recipe-description-span-ingredients">Ingredients: </span> 
  <br /> <br />
+ <form> {/* onSubmit={this.newIngredient}> */}
  <TextField
  id="outlined-textarea"
- //label="Edit ingredients info"
  placeholder="Edit ingredients"
  multiline
  variant="outlined"
@@ -49,20 +53,21 @@ const RecipeInfo = (props) => {
  onChange={ (e) => { setState({
       ingredients: e.target.value
  })
+ console.log(state.ingredients)
  } 
 }
 />
+</form>
 <Tooltip title="Save">
-<Button onClick={() => props.updateRecipe()}><SaveIcon className="edit-recipe-icon" 
+<Button onClick={() => props.updateRecipe(recipez.ingredients)}><SaveIcon className="edit-recipe-icon" 
 /></Button>
 </Tooltip>
 </h4>
 
- <h4> <span className="recipe-description-span-ingredients-directions">Directions: </span>
+ {/* <h4> <span className="recipe-description-span-directions">Directions: </span>
  <br /> <br />
   <TextField
  id="outlined-textarea"
- //label="Edit directions info"
  placeholder="Edit directions"
  multiline
  variant="outlined"
@@ -75,7 +80,7 @@ const RecipeInfo = (props) => {
 <Tooltip title="Save">
 <Button onClick={() => props.updateRecipe(recipez.id)}><SaveIcon className="edit-recipe-icon" 
 /></Button>
-</Tooltip></h4>
+</Tooltip></h4> */}
 
 </Container>
   );
